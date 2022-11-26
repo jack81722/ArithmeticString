@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+    <AssemblyName>ArithmeticString</AssemblyName>
+    <RootNamespace>ArithmeticString</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Compiling\Operators\Int\" />
+  </ItemGroup>
+
+</Project>

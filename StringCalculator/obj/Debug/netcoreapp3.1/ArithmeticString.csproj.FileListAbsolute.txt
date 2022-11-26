@@ -1,0 +1,10 @@
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.csproj.AssemblyReference.cache
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.AssemblyInfoInputs.cache
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.AssemblyInfo.cs
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.csproj.CoreCompileInputs.cache
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\bin\Debug\netcoreapp3.1\ArithmeticString.deps.json
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\bin\Debug\netcoreapp3.1\ArithmeticString.dll
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\bin\Debug\netcoreapp3.1\ArithmeticString.pdb
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.dll
+C:\Users\jack8\source\repos\StringCalculator\StringCalculator\obj\Debug\netcoreapp3.1\ArithmeticString.pdb
