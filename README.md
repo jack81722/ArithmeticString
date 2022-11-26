@@ -29,7 +29,7 @@ Framework: ```.NET Core 3.1```
 
 	Constant is the basic element of the formula. It must be declare as numeric characters such as ```1```, ```2.1```, ...etc.
 	```csharp
-	var formula = "x";
+	var formula = "1";
 	var equation = FloatCompile.Compile(formula);
 	
 	// result = 1
