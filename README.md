@@ -90,7 +90,7 @@ Framework: ```.NET Core 3.1```
 	
 	void Example(){
 		var compiler = new Compile<float>(new FloatParser());
-		var compiler.InstallOperator<PlusOperator>("+");
+		compiler.InstallOperator<PlusOperator>("+");
 		
 		var formula = "1 + 2";
 		var equation = compiler.Compile(formula);
@@ -116,7 +116,7 @@ Framework: ```.NET Core 3.1```
 	
 	void Example(){
 		var compiler = new Compile<float>(new FloatParser());
-		var compiler.InstallFunc("Sigma", Sigma);
+		compiler.InstallFunc("Sigma", Sigma);
 		
 		var formula = "Sigma(1, 2, 3)";
 		var equation = compiler.Compile(formula);
