@@ -49,7 +49,7 @@ Framework: ```.NET Core 3.1```
 
 - **Operator**
 
-	Operator will calculate the left and right element of the formula. And it will follow the priority of the operator (like ```*``` = ```/``` > ```+```, ```-```) by default. Also, you may customize your operator and priority (see [Advanced Usage]).
+	Operator will calculate the left and right element of the formula. And it will follow the priority of the operator (like ```*``` = ```/``` > ```+```, ```-```) by default. Also, you may customize your operator and priority (see **Advanced Usage**).
 	```csharp
 	var formula = "1 + 2 * 3";
 	var equation = FloatCompile.Compile(formula);
