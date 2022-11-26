@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RHLA1v7ZrMKodr9FzjFgrN64pc8eGvguI1ykvH8iB9MrHc/3X4lDCZUMCfUss+S84mfc2PQvnqaesiuGOmEtuQ==",
+  "dgSpecHash": "dRh2WyzvqlyrrfqpPlJ1hSX7QnnaDg8Ll2u/R7eVVO9l2sMm3NmHmR3LQ/XqrhBOvIgPngHI2/HbXezOkWwxuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\StringCalculator.Test\\ArithmeticString.Test.csproj",
+  "projectFilePath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\ArithmeticString.Test\\ArithmeticString.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jack8\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\jack8\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

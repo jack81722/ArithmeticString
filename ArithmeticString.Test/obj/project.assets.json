@@ -5930,11 +5930,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\StringCalculator.Test\\ArithmeticString.Test.csproj",
+      "projectUniqueName": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\ArithmeticString.Test\\ArithmeticString.Test.csproj",
       "projectName": "ArithmeticString.Test",
-      "projectPath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\StringCalculator.Test\\ArithmeticString.Test.csproj",
+      "projectPath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\ArithmeticString.Test\\ArithmeticString.Test.csproj",
       "packagesPath": "C:\\Users\\jack8\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\StringCalculator.Test\\obj\\",
+      "outputPath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\ArithmeticString.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5954,6 +5954,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\jack8\\source\\repos\\StringCalculator\\ArithmeticString\\ArithmeticString.csproj": {
+              "projectPath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\ArithmeticString\\ArithmeticString.csproj"
+            },
             "C:\\Users\\jack8\\source\\repos\\StringCalculator\\StringCalculator\\ArithmeticString.csproj": {
               "projectPath": "C:\\Users\\jack8\\source\\repos\\StringCalculator\\StringCalculator\\ArithmeticString.csproj"
             }
