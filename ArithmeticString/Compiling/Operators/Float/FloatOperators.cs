@@ -14,7 +14,6 @@ namespace ArithmeticString.Compiling.Operators.Float
     #endregion
 
     #region -- General Operator --
-
     public class PlusOperator : IOperator<float>
     {
         public float Calculate(float x, float y)
@@ -139,7 +138,7 @@ namespace ArithmeticString.Compiling.Operators.Float
 
         public static float Round(float[] args)
         {
-            if(args.Length == 1)
+            if (args.Length == 1)
                 return MathF.Round(args[0]);
             return MathF.Round(args[0], (int)args[1]);
         }
@@ -152,7 +151,7 @@ namespace ArithmeticString.Compiling.Operators.Float
         }
 
         public static float Clamp(float[] args)
-        {   
+        {
             var value = MathF.Max(args[0], args[1]);
             value = MathF.Min(value, args[2]);
             return value;

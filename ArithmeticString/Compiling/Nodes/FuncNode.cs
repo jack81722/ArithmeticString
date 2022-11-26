@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArithmeticString.Compiling.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,10 +8,10 @@ namespace ArithmeticString.Compiling.Nodes
     public class FuncNode<T> : GroupNode<T>
     {
         public string Name { get; }
-        private Func<T[], T> _func;
+        private IFunction<T> _func;
         protected List<Node<T>> Inners = new List<Node<T>>();
 
-        public FuncNode(string name, Func<T[], T> func) : base($"{name}(", ")")
+        public FuncNode(string name, IFunction<T> func) : base($"{name}(", ")")
         {
             Name = name;
             _func = func;
@@ -51,7 +52,7 @@ namespace ArithmeticString.Compiling.Nodes
             {
                 values[i] = Inners[i].Solve(ctx);
             }
-            return _func(values);
+            return _func.Calculate(values);
         }
 
         public override string Explain(IEquationContext<T> ctx = null)

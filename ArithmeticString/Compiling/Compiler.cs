@@ -1,5 +1,6 @@
 ﻿using ArithmeticString.Compiling.Interfaces;
 using ArithmeticString.Compiling.Nodes;
+using ArithmeticString.Compiling.Operators;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace ArithmeticString.Compiling
         Dictionary<char, IDecorator<T>> _prefixDecorators;
         Dictionary<char, IDecorator<T>> _suffixDecorators;
 
-        Dictionary<string, Func<T[], T>> _funcs;
+        Dictionary<string, IFunction<T>> _funcs;
 
         #region -- Constructor --
         public Compiler(IParser<T> parser)
@@ -32,29 +33,29 @@ namespace ArithmeticString.Compiling
             _prefixs = new HashSet<char>();
             _prefixDecorators = new Dictionary<char, IDecorator<T>>();
             _suffixDecorators = new Dictionary<char, IDecorator<T>>();
-            _funcs = new Dictionary<string, Func<T[], T>>();
+            _funcs = new Dictionary<string, IFunction<T>>();
         }
         #endregion
 
         #region -- Install --
-        public Compiler<T> InstallOperator<TOperator>(string symbol, int priority = 0) where TOperator : IOperator<T>
+        public Compiler<T> InstallOperator(string symbol, IOperator<T> @operator, int priority)
         {
-            var @operator = Activator.CreateInstance<TOperator>();
             _ruler.Add(symbol, @operator, priority);
             return this;
         }
 
-        public Compiler<T> InstallPrefix<TDecorator>(char prefix) where TDecorator : IDecorator<T>
+        public Compiler<T> InstallPrefixDecorator(char prefix, IDecorator<T> decorator)
         {
-            var decorator = Activator.CreateInstance<TDecorator>();
             _prefixs.Add(prefix);
             _prefixDecorators.Add(prefix, decorator);
             return this;
         }
 
-        public Compiler<T> InstallFunc(string name, Func<T[], T> func)
+
+
+        public Compiler<T> InstallFunc(string name, IFunction<T> function)
         {
-            _funcs.Add(name, func);
+            _funcs.Add(name, function);
             return this;
         }
         #endregion
@@ -241,7 +242,7 @@ namespace ArithmeticString.Compiling
         private (GroupNode<T>, Node<T>) startFunc(Stack<GroupNode<T>> stack, GroupNode<T> current, string seg)
         {
             var funcName = seg;
-            _funcs.TryGetValue(funcName, out Func<T[], T> func);
+            _funcs.TryGetValue(funcName, out IFunction<T> func);
             stack.Push(current);
             stack.Push(new FuncNode<T>(funcName, func));
             return (new ExprNode<T>(), null);
@@ -817,6 +818,45 @@ namespace ArithmeticString.Compiling
                 array[i] = _sortedOperators[index].Keys.ToArray();
             }
             return array;
+        }
+    }
+
+    public static class CompilerExtension
+    {
+        public static Compiler<T> InstallOperator<T, TOperator>(this Compiler<T> compiler, string symbol, int priority = 0) where TOperator : IOperator<T>
+        {
+            var @operator = Activator.CreateInstance<TOperator>();
+            return compiler.InstallOperator(symbol, @operator, priority);
+        }
+
+        public static Compiler<T> InstallOperator<T>(this Compiler<T> compiler, string symbol, Func<T, T, T> func, int priority = 0)
+        {
+            var @operator = new GenericFuncOperator<T>(func);
+            return compiler.InstallOperator(symbol, @operator, priority);
+        }
+
+        public static Compiler<T> InstallPrefixDecorator<T, TDecorator>(this Compiler<T> compiler, char prefix) where TDecorator : IDecorator<T>
+        {
+            var decorator = Activator.CreateInstance<TDecorator>();
+            return compiler.InstallPrefixDecorator(prefix, decorator);
+        }
+
+        public static Compiler<T> InstallPrefixDecorator<T, TDecorator>(this Compiler<T> compiler, char prefix, Func<T, T> func) where TDecorator : IDecorator<T>
+        {
+            var decorator = new GenericFuncDecorator<T>(func);
+            return compiler.InstallPrefixDecorator(prefix, decorator);
+        }
+
+        public static Compiler<T> InstallFunc<T, TFunction>(this Compiler<T> compiler, string name) where TFunction : IFunction<T>
+        {
+            var function = Activator.CreateInstance<TFunction>();
+            return compiler.InstallFunc(name, function);
+        }
+
+        public static Compiler<T> InstallFunc<T>(this Compiler<T> compiler, string name, Func<T[], T> func)
+        {
+            var function = new GenericFuncFunction<T>(func);
+            return compiler.InstallFunc(name, function);
         }
     }
 }

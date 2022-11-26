@@ -15,18 +15,18 @@ namespace ArithmeticString.Compiling
         public static Compiler<float> NewFloatCompiler()
         {
             var compiler = new Compiler<float>(new FloatParser());
-            compiler.InstallOperator<PlusOperator>("+").
-                InstallOperator<MinusOperator>("-").
-                InstallOperator<MultiOperator>("*", 1).
-                InstallOperator<DivideOperator>("/", 1).
-                InstallOperator<PowerOperator>("^", 2).
-                InstallOperator<EqualOperator>("==").
-                InstallOperator<NotEqualOperator>("!=").
-                InstallOperator<GreaterOperator>(">").
-                InstallOperator<GreaterOrEqualOperator>(">=").
-                InstallOperator<LessOperator>("<").
-                InstallOperator<LessOrEqualOperator>("<=").
-                InstallPrefix<NegativeDecorator>('-').
+            compiler.InstallOperator<float, PlusOperator>("+").
+                InstallOperator<float, MinusOperator>("-").
+                InstallOperator<float, MultiOperator>("*", 1).
+                InstallOperator<float, DivideOperator>("/", 1).
+                InstallOperator<float, PowerOperator>("^", 2).
+                InstallOperator<float, EqualOperator>("==").
+                InstallOperator<float, NotEqualOperator>("!=").
+                InstallOperator<float, GreaterOperator>(">").
+                InstallOperator<float, GreaterOrEqualOperator>(">=").
+                InstallOperator<float, LessOperator>("<").
+                InstallOperator<float, LessOrEqualOperator>("<=").
+                InstallPrefixDecorator<float, NegativeDecorator>('-').
                 InstallFunc("sum", FloatFuncs.Sum).
                 InstallFunc("floor", FloatFuncs.Floor).
                 InstallFunc("ceil", FloatFuncs.Ceil).

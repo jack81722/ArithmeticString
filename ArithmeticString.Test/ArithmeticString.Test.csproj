@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ArithmeticString\ArithmeticString.csproj" />
     <ProjectReference Include="..\StringCalculator\ArithmeticString.csproj" />
   </ItemGroup>
 
