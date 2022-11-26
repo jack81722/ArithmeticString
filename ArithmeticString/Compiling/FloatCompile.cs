@@ -10,9 +10,9 @@ namespace ArithmeticString.Compiling
 {
     public static class FloatCompile
     {
-        static Lazy<Compiler<float>> _floatCompiler = new Lazy<Compiler<float>>(initFloatCompiler);
+        static Lazy<Compiler<float>> _floatCompiler = new Lazy<Compiler<float>>(NewFloatCompiler);
 
-        static Compiler<float> initFloatCompiler()
+        public static Compiler<float> NewFloatCompiler()
         {
             var compiler = new Compiler<float>(new FloatParser());
             compiler.InstallOperator<PlusOperator>("+").
